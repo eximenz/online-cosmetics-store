@@ -7,7 +7,7 @@ import SearchStatus from "./searchStatus";
 import UserTable from "./usersTable";
 import _ from "lodash";
 
-const Users = () => {
+const Products = () => {
   const [category, setCategory] = useState();
   const [selectedCategory, setSelectedCategory] = useState();
   const [currentPage, setCurrentPage] = useState(1);
@@ -110,4 +110,4 @@ const Users = () => {
   return "loading...";
 };
 
-export default Users;
+export default Products;

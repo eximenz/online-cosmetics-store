@@ -1,43 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import NavBarItems from "./navBarItems";
+import SignInRegisrtationBlock from "./SignInRegisrtationBlock";
 
 const NavBar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light p-0">
-      <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
-          <img
-            src="https://www.clipartkey.com/mpngs/m/43-432819_hair-and-makeup-logo-wwwpixsharkcom-images-galleries-professional.png"
-            alt="логотип"
-            width="150"
-            className="d-inline-block align-text-top"
-          />
-        </Link>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link
-                className="nav-link active 4rem"
-                aria-current="page"
-                to="/users"
-              >
-                Товары
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/login">
-                Избранное
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/">
-                Корзина
-              </Link>
-            </li>
-          </ul>
+    <div className="container-fluid bg-light mb-4 p-0">
+      <div className="row">
+        <div className="col-sm">
+          <NavBarItems />
+        </div>
+        <div className="col-sm d-flex justify-content-end align-items-center">
+          <SignInRegisrtationBlock />
         </div>
       </div>
-    </nav>
+    </div>
   );
 };
 

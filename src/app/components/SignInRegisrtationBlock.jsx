@@ -1,16 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Regisrtation = () => {
+const SignInRegisrtationBlock = () => {
   return (
     <div className="p-4">
       <nav aria-label="breadcrumb">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
-            <Link to="#">Вход</Link>
+            <Link className="text-secondary" to="#">
+              Вход
+            </Link>
           </li>
           <li className="breadcrumb-item">
-            <Link to="#">Регистрация</Link>
+            <Link className="text-secondary" to="#">
+              Регистрация
+            </Link>
           </li>
         </ol>
       </nav>
@@ -18,4 +22,4 @@ const Regisrtation = () => {
   );
 };
 
-export default Regisrtation;
+export default SignInRegisrtationBlock;
