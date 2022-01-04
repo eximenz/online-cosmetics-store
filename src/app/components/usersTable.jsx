@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import Table from "./table";
 
 const UserTable = ({
-  users,
+  products,
   onSort,
   selectedSort,
   onToggleBookMark,
@@ -22,13 +22,13 @@ const UserTable = ({
       onSort={onSort}
       selectedSort={selectedSort}
       columns={columns}
-      data={users}
+      data={products}
     />
   );
 };
 
 UserTable.propTypes = {
-  users: PropTypes.array.isRequired,
+  products: PropTypes.array.isRequired,
   onSort: PropTypes.func.isRequired,
   selectedSort: PropTypes.object.isRequired,
   onToggleBookMark: PropTypes.func,

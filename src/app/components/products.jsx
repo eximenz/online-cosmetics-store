@@ -13,28 +13,15 @@ const Products = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState({ path: "name", order: "asc" });
   const pageSize = 8;
-  const [users, setUsers] = useState();
-
-  console.log(sortBy);
+  const [products, setProducts] = useState();
 
   useEffect(() => {
-    api.products.fetchAll().then((data) => setUsers(data));
+    api.products.fetchAll().then((data) => setProducts(data));
   }, []);
 
-  const handleDelete = (userId) => {
-    setUsers((prevState) => prevState.filter((user) => user._id !== userId));
-  };
-
-  const handleToggleBookMark = (id) => {
-    const toggleBookMarkArray = users.map((user) => {
-      if (user._id === id) {
-        user.bookmark = !user.bookmark;
-      }
-      return user;
-    });
-
-    setUsers(toggleBookMarkArray);
-  };
+  // const handleDelete = (productId) => {
+  //   setProducts((prevState) => prevState.filter((product) => product._id !== productId));
+  // };
 
   useEffect(() => {
     api.category.fetchAll().then((data) => setCategory(data));
@@ -44,7 +31,7 @@ const Products = () => {
     setCurrentPage(1);
   }, [selectedCategory]);
 
-  const handlecategorySelect = (item) => {
+  const handleCategorySelect = (item) => {
     setSelectedCategory(item);
   };
 
@@ -53,18 +40,20 @@ const Products = () => {
   };
 
   const handleSort = (item) => {
-    console.log(item);
     setSortBy(item);
   };
 
-  if (users) {
-    const filteredUsers = selectedCategory
-      ? users.filter((user) => user.category._id === selectedCategory._id)
-      : users;
-    const count = filteredUsers.length;
-    const sortedUsers = _.orderBy(filteredUsers, [sortBy.path], [sortBy.order]); // desc
-    console.log(sortedUsers);
-    const userCrop = paginate(sortedUsers, currentPage, pageSize);
+  if (products) {
+    const filteredProducts = selectedCategory
+      ? products.filter((prod) => prod.category._id === selectedCategory._id)
+      : products;
+    const count = filteredProducts.length;
+    const sortedProducts = _.orderBy(
+      filteredProducts,
+      [sortBy.path],
+      [sortBy.order]
+    );
+    const productCrop = paginate(sortedProducts, currentPage, pageSize);
 
     const clearFilter = () => {
       setSelectedCategory();
@@ -77,7 +66,7 @@ const Products = () => {
             <GroupList
               selectedItem={selectedCategory}
               items={category}
-              onItemSelect={handlecategorySelect}
+              onItemSelect={handleCategorySelect}
             />
             <button className="btn btn-secondary mt-2" onClick={clearFilter}>
               Очистить
@@ -88,11 +77,10 @@ const Products = () => {
           <SearchStatus length={count} />
           {count > 0 && (
             <UserTable
-              users={userCrop}
+              products={productCrop}
               onSort={handleSort}
               selectedSort={sortBy}
-              onDelete={handleDelete}
-              onToggleBookMark={handleToggleBookMark}
+              // onDelete={handleDelete}
             />
           )}
           <div className="d-flex justify-content-center">
