@@ -47,12 +47,15 @@ const Products = () => {
     const filteredProducts = selectedCategory
       ? products.filter((prod) => prod.category._id === selectedCategory._id)
       : products;
+
     const count = filteredProducts.length;
+
     const sortedProducts = _.orderBy(
       filteredProducts,
       [sortBy.path],
       [sortBy.order]
     );
+
     const productCrop = paginate(sortedProducts, currentPage, pageSize);
 
     const clearFilter = () => {
