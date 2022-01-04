@@ -1,7 +1,8 @@
-import users from "./fake.api/user.api";
+import products from "./fake.api/products.api";
 import category from "./fake.api/category.api";
 const API = {
-  users,
+  products,
   category,
 };
+
 export default API;

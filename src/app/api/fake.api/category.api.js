@@ -7,7 +7,7 @@ export const categoryObject = {
   nailPolish: { _id: "67rdca3eeb7f6fgeed471829", name: "Лак для ногтей" },
 };
 
-export const professions = [
+export const category = [
   { _id: "67rdca3eeb7f6fgeed471818", name: "Тени" },
   { _id: "67rdca3eeb7f6fgeed471820", name: "Помада" },
   { _id: "67rdca3eeb7f6fgeed471814", name: "Шампунь" },
@@ -19,7 +19,7 @@ export const professions = [
 const fetchAll = () =>
   new Promise((resolve) => {
     window.setTimeout(function () {
-      resolve(professions);
+      resolve(category);
     }, 2000);
   });
 

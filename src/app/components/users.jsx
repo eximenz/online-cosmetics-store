@@ -18,7 +18,7 @@ const Users = () => {
   console.log(sortBy);
 
   useEffect(() => {
-    api.users.fetchAll().then((data) => setUsers(data));
+    api.products.fetchAll().then((data) => setUsers(data));
   }, []);
 
   const handleDelete = (userId) => {
