@@ -5,6 +5,8 @@ import Main from "./components/main";
 import UserList from "./components/userList";
 import Favorites from "./components/favorites";
 import Basket from "./components/basket";
+import SingIn from "./components/singIn";
+import Registration from "./components/registration";
 
 const App = () => {
   return (
@@ -14,6 +16,8 @@ const App = () => {
         <Route path="/login" component={Favorites} />
         <Route path="/basket" component={Basket} />
         <Route path="/products/:userId?" component={UserList} />
+        <Route path="/singIn" component={SingIn} />
+        <Route path="/registration" component={Registration} />
         <Route path="/" component={Main} />
       </Switch>
     </>
