@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const TableHeader = ({ onSort }) => {
+const SortByPrice = ({ onSort }) => {
   return (
     <div className="dropdown">
       <button
@@ -35,8 +35,8 @@ const TableHeader = ({ onSort }) => {
   );
 };
 
-TableHeader.propTypes = {
+SortByPrice.propTypes = {
   onSort: PropTypes.func.isRequired,
 };
 
-export default TableHeader;
+export default SortByPrice;

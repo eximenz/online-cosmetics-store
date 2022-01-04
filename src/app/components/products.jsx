@@ -4,8 +4,9 @@ import Pagination from "./pagination";
 import api from "../api";
 import GroupList from "./groupList";
 import SearchStatus from "./searchStatus";
-import UserTable from "./usersTable";
 import _ from "lodash";
+import SortByPrice from "./sortByPrice";
+import PageBody from "./pageBody";
 
 const Products = () => {
   const [category, setCategory] = useState();
@@ -77,15 +78,15 @@ const Products = () => {
           </div>
         )}
         <div className="d-flex flex-column pr-5">
-          <SearchStatus length={count} />
-          {count > 0 && (
-            <UserTable
-              products={productCrop}
-              onSort={handleSort}
-              selectedSort={sortBy}
-              // onDelete={handleDelete}
-            />
-          )}
+          <div className="d-flex flex-row">
+            <div className="col-sm-8">
+              <SearchStatus length={count} />
+            </div>
+            <div className="col-sm-3 d-flex justify-content-end">
+              <SortByPrice onSort={handleSort} />
+            </div>
+          </div>
+          <PageBody products={productCrop} />
           <div className="d-flex justify-content-center">
             <Pagination
               itemsCount={count}
