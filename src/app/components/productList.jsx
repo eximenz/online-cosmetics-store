@@ -1,18 +1,18 @@
 import React from "react";
-import UserPage from "./userPage";
 import Products from "./products";
 import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
+import ProductPage from "./userPage";
 
-const UserList = () => {
+const ProductList = () => {
   const params = useParams();
   const { userId } = params;
 
-  return <>{userId ? <UserPage id={userId} /> : <Products />}</>;
+  return <>{userId ? <ProductPage id={userId} /> : <Products />}</>;
 };
 
-UserList.propTypes = {
+ProductList.propTypes = {
   match: PropTypes.object.isRequired,
 };
 
-export default UserList;
+export default ProductList;

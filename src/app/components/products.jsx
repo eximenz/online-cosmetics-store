@@ -86,7 +86,7 @@ const Products = () => {
               <SortByPrice onSort={handleSort} />
             </div>
           </div>
-          <PageBody products={productCrop} />
+          <PageBody data={productCrop} />
           <div className="d-flex justify-content-center">
             <Pagination
               itemsCount={count}

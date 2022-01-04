@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import api from "../api";
 import PropTypes from "prop-types";
-import Qualitie from "./qualitie";
 
-const UserPage = ({ id }) => {
+const ProductPage = ({ id }) => {
   const [userInfo, setUserInfo] = useState();
   const history = useHistory();
 
@@ -21,11 +20,6 @@ const UserPage = ({ id }) => {
       <>
         <h1>{userInfo.name}</h1>
         <div>Професcия: {userInfo.profession.name}</div>
-        <div>
-          {userInfo.qualities.map((quality) => (
-            <Qualitie key={quality._id} {...quality} />
-          ))}
-        </div>
         <div>Завершенных встреч: {userInfo.completedMeetings}</div>
         <div>Рейтинг: {userInfo.rate}</div>
         <button
@@ -42,8 +36,8 @@ const UserPage = ({ id }) => {
   return "loading...";
 };
 
-UserPage.propTypes = {
+ProductPage.propTypes = {
   id: PropTypes.string.isRequired,
 };
 
-export default UserPage;
+export default ProductPage;
