@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const CardBody = ({ src, alt, name, description, price }) => {
   return (
-    <div className="col-sm-8">
+    <div className="col-8">
       <div className="card mb-3 p-0">
         <div className="row g-0">
           <div className="col-md-4">

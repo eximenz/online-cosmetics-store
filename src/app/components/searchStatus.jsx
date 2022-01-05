@@ -10,12 +10,10 @@ const SearchStatus = ({ length }) => {
   // };
 
   return (
-    <>
-      <div className="h6 col-sm-7 mb-4">
-        Количество товаров, найденных по запросу: {length}
-        {/* {length > 0 ? renderPhrase(length) : "Никто с тобой не тусанет"} */}
-      </div>
-    </>
+    <div className="h6 mb-4">
+      Количество товаров, найденных по запросу: {length}
+      {/* {length > 0 ? renderPhrase(length) : "Никто с тобой не тусанет"} */}
+    </div>
   );
 };
 

@@ -64,37 +64,39 @@ const Products = () => {
     };
 
     return (
-      <div className="d-flex">
-        {category && (
-          <div className="col-sm-3 d-flex flex-column flex-shrink-0 p-3">
-            <GroupList
-              selectedItem={selectedCategory}
-              items={category}
-              onItemSelect={handleCategorySelect}
-            />
-            <button className="btn btn-secondary mt-2" onClick={clearFilter}>
-              Очистить
-            </button>
-          </div>
-        )}
-        <div className="d-flex flex-column pr-5">
-          <div className="d-flex flex-row">
-            <div className="col-sm-8">
-              <SearchStatus length={count} />
+      <div className="container">
+        <div className="row mb-3">
+          {category && (
+            <div className="col-3">
+              <GroupList
+                selectedItem={selectedCategory}
+                items={category}
+                onItemSelect={handleCategorySelect}
+              />
+              <button className="btn btn-secondary mt-2" onClick={clearFilter}>
+                Очистить
+              </button>
             </div>
-            <div className="col-sm-3 d-flex justify-content-end">
-              <SortByPrice onSort={handleSort} />
+          )}
+          <div className="col-9">
+            <div className="row">
+              <div className="col-10">
+                <SearchStatus length={count} />
+              </div>
+              <div className="col-2 d-flex justify-content-end">
+                <SortByPrice onSort={handleSort} />
+              </div>
             </div>
+            <ProductCard data={productCrop} />
           </div>
-          <ProductCard data={productCrop} />
-          <div className="d-flex justify-content-center">
-            <Pagination
-              itemsCount={count}
-              pageSize={pageSize}
-              currentPage={currentPage}
-              onPageChange={handlePageChange}
-            />
-          </div>
+        </div>
+        <div className="d-flex justify-content-center">
+          <Pagination
+            itemsCount={count}
+            pageSize={pageSize}
+            currentPage={currentPage}
+            onPageChange={handlePageChange}
+          />
         </div>
       </div>
     );
