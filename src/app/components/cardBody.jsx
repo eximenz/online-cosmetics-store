@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Card = ({ src, alt, name, description, price }) => {
+const CardBody = ({ src, alt, name, description, price }) => {
   return (
     <div className="col-sm-8">
       <div className="card mb-3 p-0">
@@ -24,7 +24,7 @@ const Card = ({ src, alt, name, description, price }) => {
   );
 };
 
-Card.propTypes = {
+CardBody.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
@@ -32,4 +32,4 @@ Card.propTypes = {
   price: PropTypes.number.isRequired,
 };
 
-export default Card;
+export default CardBody;

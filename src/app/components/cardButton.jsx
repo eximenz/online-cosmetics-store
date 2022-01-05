@@ -1,0 +1,21 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+
+const CardButton = ({ _id }) => {
+  return (
+    <div className="col-sm-4 d-flex align-items-center justify-content-center">
+      <Link to={`/products/${_id}`}>
+        <button type="button" className="btn btn-outline-secondary">
+          Открыть карточку товара
+        </button>
+      </Link>
+    </div>
+  );
+};
+
+CardButton.propTypes = {
+  _id: PropTypes.string.isRequired,
+};
+
+export default CardButton;
