@@ -6,7 +6,7 @@ import GroupList from "./groupList";
 import SearchStatus from "./searchStatus";
 import _ from "lodash";
 import SortByPrice from "./sortByPrice";
-import PageBody from "./pageBody";
+import ProductCard from "./productCard";
 
 const Products = () => {
   const [category, setCategory] = useState();
@@ -86,7 +86,7 @@ const Products = () => {
               <SortByPrice onSort={handleSort} />
             </div>
           </div>
-          <PageBody data={productCrop} />
+          <ProductCard data={productCrop} />
           <div className="d-flex justify-content-center">
             <Pagination
               itemsCount={count}

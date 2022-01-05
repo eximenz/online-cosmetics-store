@@ -8,20 +8,20 @@ const ProductPage = ({ id }) => {
   const history = useHistory();
 
   const handleAllUsers = () => {
-    history.replace("/users");
+    history.replace("/products");
   };
 
   useEffect(() => {
-    api.users.getBy(id).then((data) => setUserInfo(data));
+    api.products.getBy(id).then((data) => setUserInfo(data));
   }, []);
 
   if (userInfo) {
     return (
       <>
         <h1>{userInfo.name}</h1>
-        <div>Професcия: {userInfo.profession.name}</div>
+        {/* <div>Професcия: {userInfo.profession.name}</div>
         <div>Завершенных встреч: {userInfo.completedMeetings}</div>
-        <div>Рейтинг: {userInfo.rate}</div>
+        <div>Рейтинг: {userInfo.rate}</div> */}
         <button
           onClick={() => {
             handleAllUsers();
