@@ -2,13 +2,13 @@ import React from "react";
 import Products from "./products";
 import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
-import ProductPage from "./userPage";
+import ProductPage from "./productPage";
 
 const ProductList = () => {
   const params = useParams();
-  const { userId } = params;
+  const { productId } = params;
 
-  return <>{userId ? <ProductPage id={userId} /> : <Products />}</>;
+  return <>{productId ? <ProductPage id={productId} /> : <Products />}</>;
 };
 
 ProductList.propTypes = {

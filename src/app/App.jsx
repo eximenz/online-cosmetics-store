@@ -7,15 +7,17 @@ import Basket from "./components/basket";
 import SingIn from "./components/singIn";
 import Registration from "./components/registration";
 import ProductList from "./components/productList";
+import SearchForm from "./components/searchForm";
 
 const App = () => {
   return (
     <>
       <NavBar />
+      <SearchForm />
       <Switch>
         <Route path="/login" component={Favorites} />
         <Route path="/basket" component={Basket} />
-        <Route path="/products/:userId?" component={ProductList} />
+        <Route path="/products/:productId?" component={ProductList} />
         <Route path="/singIn" component={SingIn} />
         <Route path="/registration" component={Registration} />
         <Route path="/" component={Main} />

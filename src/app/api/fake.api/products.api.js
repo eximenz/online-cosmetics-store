@@ -7,7 +7,7 @@ const products = [
     category: category.shadow,
     description: "Палетка теней для век Naughty Nine",
     price: 4890,
-    src: "https://www.letu.ru/common/img/uploaded/skuImageFolder/WCONN3HDNEX.jpg",
+    src: "https://www.letu.ru/common/img/uploaded/skuImageFolder/LT0107104_mainGT.jpg",
     alt: "тени W7",
   },
   {
@@ -78,12 +78,12 @@ const products = [
   },
   {
     _id: "000009",
-    name: "SALLY HANSEN",
+    name: "ANNY",
     category: category.nailPolish,
     description: "Быстросохнущий лак для ногтей Insta-Dri Matte",
     price: 213,
-    src: "https://www.letu.ru/common/img/uploaded/skuImageFolder/SHN024011_mainGT.jpg",
-    alt: "лак для ногтей SALLY HANSEN",
+    src: "https://www.letu.ru/common/img/uploaded/skuImageFolder/ANYA10065GT.jpg",
+    alt: "лак для ногтей Anny",
   },
   {
     _id: "000010",
@@ -105,13 +105,13 @@ const products = [
   },
   {
     _id: "000012",
-    name: "DIOR",
+    name: "SHISEIDO ",
     category: category.mascara,
     description:
       "Подкручивающая тушь для ресниц с эффектом объема Diorshow Iconic Overcurl",
     price: 2944,
-    src: "https://www.letu.ru/common/img/uploaded/skuImageFolder/F13800090GT.jpg",
-    alt: "тушь DIOR",
+    src: "https://www.letu.ru/common/img/uploaded/skuImageFolder/SHI0001SHGT.jpg",
+    alt: "тушь SHISEIDO ",
   },
 ];
 
