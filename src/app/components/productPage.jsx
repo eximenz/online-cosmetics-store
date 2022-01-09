@@ -13,20 +13,18 @@ const ProductPage = ({ id }) => {
 
   if (productInfo) {
     return (
-      <>
-        <div className="container">
-          <div>
-            <BreadCrumbs
-              className="row"
-              {...productInfo}
-              category={productInfo.category.name}
-            />
-          </div>
-          <div className="row">
-            <ProductPartOnProductPage {...productInfo} />
-          </div>
+      <div className="container">
+        <div>
+          <BreadCrumbs
+            className="row"
+            {...productInfo}
+            category={productInfo.category.name}
+          />
         </div>
-      </>
+        <div className="row">
+          <ProductPartOnProductPage {...productInfo} />
+        </div>
+      </div>
     );
   }
 

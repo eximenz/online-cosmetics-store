@@ -1,11 +1,22 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const SearchForm = () => {
+const SearchForm = ({ onFiltrationBySearch }) => {
   return (
-    <form className="container d-flex mb-3">
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        const { target } = event;
+        const inputName = target.searchForm;
+        const inputValue = inputName.value;
+        onFiltrationBySearch(inputValue);
+      }}
+      className="container d-flex mb-3"
+    >
       <input
         className="form-control me-2"
         type="search"
+        name="searchForm"
         placeholder="Введите название товара"
         aria-label="Search"
       />
@@ -14,6 +25,10 @@ const SearchForm = () => {
       </button>
     </form>
   );
+};
+
+SearchForm.propTypes = {
+  onFiltrationBySearch: PropTypes.func,
 };
 
 export default SearchForm;

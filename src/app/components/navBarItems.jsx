@@ -7,7 +7,6 @@ const NavBarItems = () => {
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           <img
-            // src="https://www.clipartkey.com/mpngs/m/43-432819_hair-and-makeup-logo-wwwpixsharkcom-images-galleries-professional.png"
             src="https://www.static-src.com/wcsstore/Indraprastha/images/brandlogo/BRD-09506/catrice-cosmetics-logo.jpg?output-format=webp"
             alt="логотип"
             width="150"
