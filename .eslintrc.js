@@ -13,7 +13,10 @@ module.exports = {
   },
   plugins: ["react"],
   rules: {
-    indent: ["error", 2, { ignoredNodes: ["TemplateLiteral > *"] }],
+    indent: "off",
+    "multiline-ternary": "off",
+    // indent: ["error", 2, { ignoredNodes: ["TemplateLiteral *"] }],
+    // "function-paren-newline": "off",
     semi: [2, "always"],
     quotes: ["error", "double", { allowTemplateLiterals: true }],
     "space-before-function-paren": [

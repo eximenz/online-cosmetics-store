@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const SearchForm = ({ onFiltrationBySearch }) => {
+const SearchForm = ({ onGetValue }) => {
   return (
     <form
       onSubmit={(event) => {
@@ -9,7 +9,7 @@ const SearchForm = ({ onFiltrationBySearch }) => {
         const { target } = event;
         const inputName = target.searchForm;
         const inputValue = inputName.value;
-        onFiltrationBySearch(inputValue);
+        onGetValue(inputValue);
       }}
       className="container d-flex mb-3"
     >
@@ -28,7 +28,7 @@ const SearchForm = ({ onFiltrationBySearch }) => {
 };
 
 SearchForm.propTypes = {
-  onFiltrationBySearch: PropTypes.func,
+  onGetValue: PropTypes.func,
 };
 
 export default SearchForm;
