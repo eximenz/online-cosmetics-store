@@ -9,7 +9,7 @@ import SortByPrice from "./sortByPrice";
 import ProductCard from "./productCard";
 import PropTypes from "prop-types";
 
-const Products = ({ valueForFiltration }) => {
+const Products = ({ valueForFiltrationBySearch }) => {
   const [category, setCategory] = useState();
   const [selectedCategory, setSelectedCategory] = useState();
   const [currentPage, setCurrentPage] = useState(1);
@@ -18,15 +18,20 @@ const Products = ({ valueForFiltration }) => {
   const [products, setProducts] = useState();
 
   useEffect(() => {
-    api.products.fetchAll().then((data) => setProducts(data));
+    let cleanupFunction = true;
+    api.products.fetchAll().then((data) => {
+      if (cleanupFunction) setProducts(data);
+    });
+    return () => (cleanupFunction = false);
   }, []);
 
-  // const handleDelete = (productId) => {
-  //   setProducts((prevState) => prevState.filter((product) => product._id !== productId));
-  // };
-
   useEffect(() => {
-    api.category.fetchAll().then((data) => setCategory(data));
+    let cleanupFunctio = true;
+    api.category.fetchAll().then((data) => {
+      if (cleanupFunctio) setCategory(data);
+    });
+
+    return () => (cleanupFunctio = false);
   }, []);
 
   useEffect(() => {
@@ -46,19 +51,19 @@ const Products = ({ valueForFiltration }) => {
   };
 
   if (products) {
-    const filtereProductdBySearch = valueForFiltration
+    const filtereProductdByProduct = valueForFiltrationBySearch
       ? products.filter(
           (product) =>
             product.name.toLowerCase() ===
-            valueForFiltration.toLowerCase().trim()
+            valueForFiltrationBySearch.toLowerCase().trim()
         )
       : products;
 
     const filteredProducts = selectedCategory
-      ? filtereProductdBySearch.filter(
+      ? filtereProductdByProduct.filter(
           (product) => product.category._id === selectedCategory._id
         )
-      : filtereProductdBySearch;
+      : filtereProductdByProduct;
 
     const count = filteredProducts.length;
 
@@ -116,7 +121,7 @@ const Products = ({ valueForFiltration }) => {
 };
 
 Products.propTypes = {
-  valueForFiltration: PropTypes.string,
+  valueForFiltrationBySearch: PropTypes.string,
 };
 
 export default Products;

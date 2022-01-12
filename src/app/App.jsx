@@ -10,10 +10,11 @@ import ProductList from "./components/productList";
 import SearchForm from "./components/searchForm";
 
 const App = () => {
-  const [valueForFiltration, setValueForFiltration] = useState();
+  const [valueForFiltrationBySearch, setValueForFiltrationBySearch] =
+    useState();
 
   const getValueFromSearch = (params) => {
-    setValueForFiltration(params);
+    setValueForFiltrationBySearch(params);
   };
 
   return (
@@ -25,7 +26,11 @@ const App = () => {
         <Route path="/basket" component={Basket} />
         <Route
           path="/products/:productId?"
-          render={() => <ProductList valueForFiltration={valueForFiltration} />}
+          render={() => (
+            <ProductList
+              valueForFiltrationBySearch={valueForFiltrationBySearch}
+            />
+          )}
         />
         <Route path="/singIn" component={SingIn} />
         <Route path="/registration" component={Registration} />

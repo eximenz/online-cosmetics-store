@@ -3,13 +3,26 @@ import api from "../api";
 import PropTypes from "prop-types";
 import BreadCrumbs from "./breadСrumbs";
 import ProductPartOnProductPage from "./ProductPartOnProductPage";
+import { Redirect } from "react-router-dom";
 
-const ProductPage = ({ id }) => {
+const ProductPage = ({ id, valueForFiltrationBySearch }) => {
   const [productInfo, setProductInfo] = useState();
 
   useEffect(() => {
-    api.products.getBy(id).then((data) => setProductInfo(data));
+    let cleanupFunction = true;
+    api.products.getBy(id).then((data) => {
+      if (cleanupFunction) setProductInfo(data);
+    });
+    return () => (cleanupFunction = false);
   }, []);
+
+  if (valueForFiltrationBySearch) {
+    return (
+      <>
+        <Redirect to="/products" />
+      </>
+    );
+  }
 
   if (productInfo) {
     return (
@@ -33,6 +46,7 @@ const ProductPage = ({ id }) => {
 
 ProductPage.propTypes = {
   id: PropTypes.string.isRequired,
+  valueForFiltrationBySearch: PropTypes.string,
 };
 
 export default ProductPage;

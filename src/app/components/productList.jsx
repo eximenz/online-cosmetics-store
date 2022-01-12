@@ -4,23 +4,26 @@ import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 import ProductPage from "./productPage";
 
-const ProductList = ({ valueForFiltration }) => {
+const ProductList = ({ valueForFiltrationBySearch }) => {
   const params = useParams();
   const { productId } = params;
 
   return (
     <>
       {productId ? (
-        <ProductPage id={productId} />
+        <ProductPage
+          id={productId}
+          valueForFiltrationBySearch={valueForFiltrationBySearch}
+        />
       ) : (
-        <Products valueForFiltration={valueForFiltration} />
+        <Products valueForFiltrationBySearch={valueForFiltrationBySearch} />
       )}
     </>
   );
 };
 
 ProductList.propTypes = {
-  valueForFiltration: PropTypes.string,
+  valueForFiltrationBySearch: PropTypes.string,
 };
 
 export default ProductList;

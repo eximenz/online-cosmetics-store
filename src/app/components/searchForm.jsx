@@ -1,26 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 const SearchForm = ({ onGetValue }) => {
+  const [value, setValue] = useState();
+
   return (
     <form
-      onSubmit={(event) => {
-        event.preventDefault();
-        const { target } = event;
-        const inputName = target.searchForm;
-        const inputValue = inputName.value;
-        onGetValue(inputValue);
-      }}
+      // onSubmit={(event) => {
+      //   event.preventDefault();
+      //   const { target } = event;
+      //   const inputName = target.searchForm;
+      //   let inputValue = inputName.value;
+      //   onGetValue(inputValue);
+      //   inputValue = "";
+      // }}
       className="container d-flex mb-3"
     >
       <input
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
         className="form-control me-2"
         type="search"
         name="searchForm"
         placeholder="Введите название товара"
         aria-label="Search"
       />
-      <button className="btn btn-outline-secondary" type="submit">
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          onGetValue(value);
+          setValue("");
+        }}
+        className="btn btn-outline-secondary"
+        type="submit"
+      >
         Найти
       </button>
     </form>
