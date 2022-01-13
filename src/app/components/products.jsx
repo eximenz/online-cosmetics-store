@@ -18,20 +18,11 @@ const Products = ({ valueForFiltrationBySearch }) => {
   const [products, setProducts] = useState();
 
   useEffect(() => {
-    let cleanupFunction = true;
-    api.products.fetchAll().then((data) => {
-      if (cleanupFunction) setProducts(data);
-    });
-    return () => (cleanupFunction = false);
+    api.products.fetchAll().then((data) => setProducts(data));
   }, []);
 
   useEffect(() => {
-    let cleanupFunctio = true;
-    api.category.fetchAll().then((data) => {
-      if (cleanupFunctio) setCategory(data);
-    });
-
-    return () => (cleanupFunctio = false);
+    api.category.fetchAll().then((data) => setCategory(data));
   }, []);
 
   useEffect(() => {

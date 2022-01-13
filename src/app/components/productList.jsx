@@ -11,10 +11,7 @@ const ProductList = ({ valueForFiltrationBySearch }) => {
   return (
     <>
       {productId ? (
-        <ProductPage
-          id={productId}
-          valueForFiltrationBySearch={valueForFiltrationBySearch}
-        />
+        <ProductPage id={productId} />
       ) : (
         <Products valueForFiltrationBySearch={valueForFiltrationBySearch} />
       )}
